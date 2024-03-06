@@ -1,0 +1,37 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": "./../",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "@dtos/(.*)": ["<rootDir>/src/dto/$1"],
+    "@dtos": ["<rootDir>/src/dto"],
+    "@utilities/(.*)": ["<rootDir>/src/utility/$1"],
+    "@utilities": ["<rootDir>/src/utility"],
+    "@adaptors/(.*)": ["<rootDir>/src/domain/adaptor/$1"],
+    "@adaptors": ["<rootDir>/src/domain/adaptor"],
+    "@constants/(.*)": ["<rootDir>/src/constant/$1"],
+    "@constants": ["<rootDir>/src/constant"],
+    "@infrastructures/(.*)": ["<rootDir>/src/infrastructure/$1"],
+    "@infrastructures": ["<rootDir>/src/infrastructure"],
+    "@domains/(.*)": ["<rootDir>/src/domain/$1"],
+    "@domains": ["<rootDir>/src/domain"],
+    "@applications/(.*)": ["<rootDir>/src/application/$1"],
+    "@applications": ["<rootDir>/src/application"],
+    "@commons/(.*)": ["<rootDir>/src/common/$1"],
+    "@commons": ["<rootDir>/src/common"],
+    "@processor/(.*)": ["<rootDir>/src/domain/processor/$1"],
+    "@processor": ["<rootDir>/src/domain/processor"],
+    "@configs/(.*)": ["<rootDir>/src/_config/$1"],
+    "@configs": ["<rootDir>/src/_config"],
+    "@middlewares/(.*)": ["<rootDir>/src/middleware/$1"],
+    "@middlewares": ["<rootDir>/src/middleware"],
+    "@shares/(.*)": ["<rootDir>/src/share/$1"],
+    "@shares": ["<rootDir>/src/share"],
+    "@seeds/(.*)": ["<rootDir>/src/seed/$1"],
+    "@seeds": ["<rootDir>/src/seed"]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "authServerUrl": "http://ec2-34-211-227-67.us-west-2.compute.amazonaws.com:8380",
+  "realm": "nest-auth",
+  "clientId": "nest-auth-client-id",
+  "secret": "kXbQQT7cyhiiBFpvVCfy6G0gAY1t4kmV",
+  "docs": "``"
+}

@@ -1,0 +1,36 @@
+{
+  "breadcrumbs.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.rulers": [120],
+  "notebook.formatOnSave.enabled": true,
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "cSpell.words": [
+    "ababank",
+    "actorable",
+    "amhp",
+    "amsa",
+    "chro",
+    "dtos",
+    "FTES",
+    "hrbp",
+    "IHRBP",
+    "ILIKE",
+    "IPDF",
+    "Kanban",
+    "Keycloak",
+    "LONGLISTED",
+    "mimetypes",
+    "nestjs",
+    "Taskable",
+    "typeorm",
+    "UUIDV4"
+  ],
+  "sonarlint.connectedMode.project": {
+    "connectionId": "https-sonarqube-ababank-com-",
+    "projectKey": "hrms:recruitment-service"
+  }
+}
