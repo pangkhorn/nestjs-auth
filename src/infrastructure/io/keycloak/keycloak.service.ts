@@ -19,18 +19,21 @@ export class KeycloakService implements IKeycloakService {
   }
   async login(dto: ILoginAuthService): Promise<any> {
     try {
-      const { data } = await this.httpService.axiosRef.get(`realms/${this.clientApp}/protocol/openid-connect/token`, {
-        data: {
-          grant_type: 'password',
-          client_id: this.clientId,
-          client_secret: this.clientSecret,
-          username: dto.username,
-          password: dto.password
-        },
+      const url = 'http://localhost:8080/realms/nest-auth/protocol/openid-connect/token';
+      const form = new FormData();
+      form.set('grant_type', 'password');
+      form.set('client_id', this.clientId);
+      form.set('client_secret', this.clientSecret);
+      form.set('username', dto.username);
+      form.set('password', dto.password);
+      const { data } = await this.httpService.axiosRef.post(url, {
+        data: form,
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       });
       return data;
     } catch (error) {
+      console.log(error.response.data);
+
       throw new BadRequestException();
     }
   }
