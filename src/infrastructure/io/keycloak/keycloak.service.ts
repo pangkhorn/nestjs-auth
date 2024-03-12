@@ -3,6 +3,7 @@ import { HttpService } from '@nestjs/axios';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { ILoginAuthService } from '@shares/type/auth.interface';
+import { stringify } from 'qs';
 
 @Injectable()
 export class KeycloakService implements IKeycloakService {
@@ -18,22 +19,20 @@ export class KeycloakService implements IKeycloakService {
     this.clientApp = this.config.get<string>('AUTHORIZATION_APP_NAME');
   }
   async login(dto: ILoginAuthService): Promise<any> {
+    const url = `/realms/${this.clientApp}/protocol/openid-connect/token`;
     try {
-      const url = 'http://localhost:8080/realms/nest-auth/protocol/openid-connect/token';
-      const form = new FormData();
-      form.set('grant_type', 'password');
-      form.set('client_id', this.clientId);
-      form.set('client_secret', this.clientSecret);
-      form.set('username', dto.username);
-      form.set('password', dto.password);
-      const { data } = await this.httpService.axiosRef.post(url, {
-        data: form,
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      const payload = stringify({
+        grant_type: 'password',
+        client_id: this.clientId,
+        client_secret: this.clientSecret,
+        username: dto.username,
+        password: dto.password
+      });
+      const { data } = await this.httpService.axiosRef.post(url, payload, {
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
       });
       return data;
     } catch (error) {
-      console.log(error.response.data);
-
       throw new BadRequestException();
     }
   }
